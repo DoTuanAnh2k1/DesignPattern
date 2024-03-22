@@ -1,1 +1,1 @@
-from libsort import *
+from . import libsort
