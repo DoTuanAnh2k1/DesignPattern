@@ -1,7 +1,23 @@
-def ReadFile(filepath: str):
+def ReadFile(filepath: str) -> list:
+    try:
+        with open(filepath, 'r') as file:
+            content = file.readlines()
+            
+        content = [int(line.strip()) for line in content]
+        return content
+    except FileNotFoundError:
+        print(f"File '{filepath}' not found.")
+        return None
+    except Exception as e:
+        print(f"Error reading file '{filepath}': {e}")
+        return None
 
-    pass
 
-def WriteFile(filepath: str):
-    
-    pass
+def WriteFile(filepath: str, arr: list[int]):
+    try:
+        with open(filepath, 'w') as file:
+            for num in arr:
+                file.write(f"{num}\n")
+        print(f"Array has been written to '{filepath}'.")
+    except Exception as e:
+        print(f"Error writing file '{filepath}': {e}")

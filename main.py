@@ -1,7 +1,12 @@
-arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+from worker.lib import *
+from common.common import *
 
-print("array before sorting: ", arr)
+def Main():
+    LibSortWorker(
+        inputfilepath = PATH_INPUT,
+        outputfilepath = PATH_OUTPUT,
+        )
+    pass
 
-arr.sort()
-
-print("array after sorting: ", arr)
+if __name__ == "__main__":
+    Main()
