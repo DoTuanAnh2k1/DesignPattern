@@ -9,6 +9,14 @@ import os
 import datetime
 from common.common import PATH_LOG
 
+
+"""
+    Log a string message to a specified log file.
+
+    Args:
+        log_string (str): The string message to be logged.
+        log_path (str, optional): The path to the log file. Defaults to PATH_LOG.
+"""
 def Log(log_string: str, log_path: str = PATH_LOG):
     try:
         log_dir = os.path.dirname(log_path)
@@ -20,7 +28,6 @@ def Log(log_string: str, log_path: str = PATH_LOG):
         with open(log_path, 'a') as log_file:
             log_file.write(f"[{current_time}] {log_string}\n")
         
-        print(f"Logged: '{log_string}' to '{log_path}'")
+        print(f"[LOGGER]: '{log_string}' to '{log_path}'")
     except Exception as e:
-        print(f"Error logging: '{log_string}' to '{log_path}': {e}")
-
+        print(f"[ERROR]: '{log_string}' to '{log_path}': {e}")

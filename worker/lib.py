@@ -1,26 +1,33 @@
-"""
-Created on Fri Mar 22 18:50:09 2024
-
-@author: Admin
-"""
 from helper.file import ReadFile, WriteFile
 from helper.log import Log
 from SortAlgo.libsort import SortArray
 
+
+"""
+- Input:
+    + inputfilepath:  Path to the input number file.    - string
+    + outputfilepath: Path to the output number file.   - string
+
+- Output:
+    + None.
+
+- Summary:
+    This function sorts an array from the file specified by inputfilepath
+    and writes the sorted array to the file specified by outputfilepath
+    using the library.
+"""
 def LibSortWorker(inputfilepath: str, outputfilepath: str):
     try:
-        # Read file from file in input path
-        Log("Read File from input file")
-        array = ReadFile(filepath = inputfilepath)
+        # Read the file from the input path.
+        Log("Reading file from input file...")
+        array = ReadFile(filepath=inputfilepath)
         
-        # Sorting
-        Log("Sorting array")
+        # Sorting the array.
+        Log("Sorting array...")
         SortArray(array)
         
-        # Write out put array after sorting 
-        # to output file path
-        Log("Write output array to output tile")
-        WriteFile(filepath = outputfilepath, arr = array)
+        # Write the sorted array to the output file.
+        Log("Writing sorted array to output file...")
+        WriteFile(filepath=outputfilepath, arr=array)
     except Exception as e:
-        Log(f"Worker/lib, error: {e}")
-        
+        Log(f"Worker/lib error: {e}")
