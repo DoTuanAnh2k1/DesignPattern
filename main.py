@@ -1,7 +1,20 @@
-arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+from worker.lib import *
+from worker.merge import *
+from common.common import *
 
-print("array before sorting: ", arr)
 
-arr.sort()
+def Main():
+    # init worker sorting array using library
+    LibSortWorker(
+        input_file_path=PATH_INPUT,
+        output_file_path=PATH_OUTPUT_LIB_SORT,
+    )
 
-print("array after sorting: ", arr)
+    MergeSortWorker(
+        input_file_path=PATH_INPUT,
+        output_file_path=PATH_OUTPUT_MERGE_SORT,
+    )
+
+
+if __name__ == "__main__":
+    Main()
