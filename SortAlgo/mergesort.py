@@ -1,11 +1,11 @@
 from helper.log import Log
+
 """
     The mergeSort function sorts the array arr using the merge Sort algorithm.
 
     Parameters:
         arr (list): The array to be sorted.
 """
-
 def mergeSort(arr: list) -> list:
     #Divided the array into 2 halves
     if len(arr) > 1:    
@@ -33,10 +33,20 @@ def mergeSort(arr: list) -> list:
             left_index += 1
             merged_index += 1
 
-
         #if leftArr is empty
         while right_index < len(rightArr):
             arr[merged_index] = rightArr[right_index]
             right_index += 1
             merged_index += 1
 
+"""
+    The SortArray function uses the Merge Sort algorithm to sort the array arr.
+    
+    Parameters:
+        arr (list): The array to be sorted.
+"""
+def SortArray(arr:list):
+    try:
+        mergeSort(arr)
+    except Exception as e:
+        Log(f"[ERROR] SortAlgo/mergesort.py error: {e}")
