@@ -18,10 +18,9 @@ from model.timer import Timer
     using the library.
 """
 
-
-def LibSortWorker(
+def MergeSortWorker(
         input_file_path: str,
-        output_file_path: str,
+        output_file_path: str,        
 ):
     try:
         # Read the file from the input path.
@@ -29,15 +28,14 @@ def LibSortWorker(
         array = ReadFile(filepath=input_file_path)
 
         # Sorting the array.
-        timeSortLib = Timer()
-        Log("Sorting array using library...")
-        timeSortLib.start()
-        SortArray(array)
-        Log(f"Sorting array using library complete, time: {timeSortLib.stop()}")
+        timeSortMerge = Timer()
+        timeSortMerge.start()
+        n = len(array)
+        MergeSort(array,0,n-1)
+        Log(f"Sorting array using mergesort complete, time: {timeSortMerge.stop()}")
 
         # Write the sorted array to the output file.
         Log("Writing sorted array to output file...")
-        WriteFile(filepath=output_file_path, arr=array)
+        WriteFile(filepath=output_file_path, arr=array)        
     except Exception as e:
-        Log(f"Worker/lib error: {e}")
-
+        Log(f"Worker/merge error: {e}")

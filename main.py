@@ -1,4 +1,5 @@
 from worker.lib import *
+from worker.merge import *
 from common.common import *
 
 
@@ -7,6 +8,11 @@ def Main():
     LibSortWorker(
         input_file_path=PATH_INPUT,
         output_file_path=PATH_OUTPUT_LIB_SORT,
+    )
+
+    MergeSortWorker(
+        input_file_path=PATH_INPUT,
+        output_file_path=PATH_OUTPUT_MERGE_SORT,
     )
 
 
